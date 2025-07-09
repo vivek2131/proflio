@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vivek sai Ambati| Portfolio</title>
+  <meta name="description" content="Portfolio of Vivek Sai Ambati - AI enthusiast, developer, and lifelong learner." />
+  <title>Vivek Sai Ambati | Portfolio</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <!-- 🔹 Header / Hero Section -->
   <header>
-    <h1>Vivek sai Ambati</h1>
-  <p><span id="typing-text"></span><span id="cursor">|</span></p>
-  <!-- ... nav and toggle button ... -->
+    <h1>Vivek Sai Ambati</h1>
+    <p><span id="typing-text"></span><span id="cursor">|</span></p>
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
@@ -20,34 +21,48 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <button id="toggle-dark">🌙 Dark Mode</button>
-
+    <button id="toggle-dark" aria-label="Toggle dark mode">🌙 Dark Mode</button>
   </header>
 
   <!-- 🔹 About Section -->
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m an enthusiastic learner with a growing interest in Artificial Intelligence and its potential to improve everyday life.
-        Fascinated by how machines can mimic human thinking, I’ve started building my skills in areas like Python, data analysis,
+    <p>I'm an enthusiastic learner with a growing interest in Artificial Intelligence and its potential to improve everyday life.
+        Fascinated by how machines can mimic human thinking, I've started building my skills in areas like Python, data analysis,
         and machine learning. I enjoy experimenting with small projects and online challenges to strengthen what I learn and understand
         how real-world problems can be solved using smart algorithms and data.</p>
-
-        <p>As someone who’s curious by nature, I love diving into new topics—from neural networks to natural language processing—and staying
-        updated with the latest developments in AI. My journey is just beginning, but I’m committed to building a strong foundation and
+    <p>As someone who's curious by nature, I love diving into new topics—from neural networks to natural language processing—and staying
+        updated with the latest developments in AI. My journey is just beginning, but I'm committed to building a strong foundation and
         turning my passion into a meaningful career. I believe that technology, when used responsibly, can make a positive impact,
-        and I hope to be a part of that transformation</p>
-        <P>Outside of tech, I enjoy reading, exploring new ideas, and connecting with others who share a love for innovation.
-        I’m currently seeking opportunities to learn, grow, and collaborate on projects that challenge me to think creatively and technically.</P>
+        and I hope to be a part of that transformation.</p>
+    <p>Outside of tech, I enjoy reading, exploring new ideas, and connecting with others who share a love for innovation.
+        I'm currently seeking opportunities to learn, grow, and collaborate on projects that challenge me to think creatively and technically.</p>
   </section>
 
   <!-- 🔹 Skills Section -->
   <section id="skills">
     <h2>Skills</h2>
     <div class="skills-container">
-      <!-- Add icons/images of your skills here -->
-      <img src="html.png" alt="HTML" />
-      <img src="css.png" alt="CSS" />
-      <img src="js.png" alt="JavaScript" />
+      <div class="skill-item">
+        <img src="html.png" alt="HTML logo" />
+        <div class="skill-label">HTML</div>
+        <div class="skill-bar"><div class="bar-fill" data-percent="100"></div></div>
+      </div>
+      <div class="skill-item">
+        <img src="css.png" alt="CSS logo" />
+        <div class="skill-label">CSS</div>
+        <div class="skill-bar"><div class="bar-fill" data-percent="100"></div></div>
+      </div>
+      <div class="skill-item">
+        <img src="js.png" alt="JavaScript logo" />
+        <div class="skill-label">JavaScript</div>
+        <div class="skill-bar"><div class="bar-fill" data-percent="100"></div></div>
+      </div>
+      <div class="skill-item">
+        <img src="mysql.png" alt="MySQL logo" />
+        <div class="skill-label">MySQL</div>
+        <div class="skill-bar"><div class="bar-fill" data-percent="100"></div></div>
+      </div>
       <!-- Add more -->
     </div>
   </section>
@@ -55,32 +70,46 @@
   <!-- 🔹 Projects Section -->
   <section id="projects">
     <h2>Projects</h2>
-    <div class="projects-container">
-      <div class="project-card">
-        <h3>Project Title</h3>
-        <p>Short description of the project.</p>
-        <a href="#">View Project</a>
-      </div>
-      <!-- Add more project cards -->
+    <div id="github-projects" class="projects-container">
+      <!-- Project cards will be loaded here by script.js -->
     </div>
+    <!-- Add more project cards if needed -->
   </section>
 
   <!-- 🔹 Contact Section -->
   <section id="contact">
     <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
+    <form action="mailto:your.email@example.com" method="POST" enctype="text/plain">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email" required />
+      <label for="message">Your Message</label>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send</button>
     </form>
   </section>
 
   <!-- 🔹 Footer -->
   <footer>
-    <p>© 2025 vivek. All rights reserved.</p>
+    <p>© 2025 Vivek Sai Ambati. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a> |
+      <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener">LinkedIn</a> |
+      <a href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
   </footer>
 
+  <noscript>
+    <p style="color: red; text-align: center;">This site works best with JavaScript enabled.</p>
+  </noscript>
+
   <script src="script.js"></script>
+  <script>
+    // Show all sections on page load
+    document.querySelectorAll('section').forEach(section => {
+      section.classList.add('animate');
+    });
+  </script>
 </body>
 </html>

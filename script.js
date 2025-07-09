@@ -66,4 +66,56 @@ function erase() {
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(type, 500);
 });
+const GITHUB_USERNAME = "vivek2131";
+const projectsContainer = document.getElementById("github-projects");
+
+async function fetchGitHubRepos() {
+  try {
+    const res = await fetch(`https://api.github.com/users/${vivek2131}/repos`);
+    const repos = await res.json();
+
+    repos.slice(0, 6).forEach(repo => {
+      const card = document.createElement("div");
+      card.className = "project-card";
+
+      card.innerHTML = `
+        <h3>${repo.name}</h3>
+        <p>${repo.description || "No description provided."}</p>
+        <a href="${repo.html_url}" target="_blank">View on GitHub</a>
+      `;
+
+      projectsContainer.appendChild(card);
+    });
+  } catch (error) {
+    console.error("GitHub API error:", error);
+    projectsContainer.innerHTML = "<p>Failed to load projects.</p>";
+  }
+}
+
+// Animate skill bars when Skills section is in view
+const skillsSection = document.getElementById('skills');
+const skillBars = document.querySelectorAll('.bar-fill');
+
+function animateSkillBars() {
+  skillBars.forEach(bar => {
+    const percent = bar.getAttribute('data-percent');
+    bar.style.width = percent + '%';
+    bar.classList.add('animated');
+  });
+}
+
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateSkillBars();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  observer.observe(skillsSection);
+} else {
+  // Fallback for old browsers
+  animateSkillBars();
+}
 
